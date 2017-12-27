@@ -4,6 +4,7 @@
   "description": "library for turn-based games",
   "repository": "https://github.com/google/boardgame.io",
   "scripts": {
+    "start": "cross-env NODE_ENV=development babel-watch --presets es2015 game/server.js",
     "dev": "cross-env NODE_ENV=development babel-watch --presets es2015 examples/server.js",
     "docsify": "docsify serve docs",
     "examples": "npm run dev",
