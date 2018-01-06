@@ -1,0 +1,59 @@
+.score-card {
+  width: 480pt;
+  user-select: none;
+}
+
+.number {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  width: 32pt;
+  height: 32pt;
+  line-height: 32pt;
+  font-size: 24pt;
+  margin: 0 2pt 0 2pt;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 25%;
+}
+.number:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.inner {
+  width: 32pt;
+  height: 32pt;
+  position: absolute;
+}
+.clicked {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 38pt;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.red {
+  background-color: #FF3D49;
+  color: #FF3D49;
+  padding: 6pt;
+  margin: 6pt;
+}
+
+.yellow {
+  background-color: #FFD439;
+  color: #FFD439;
+  padding: 6pt;
+  margin: 6pt;
+}
+
+.green {
+  background-color: #2AE897;
+  color: #2AE897;
+  padding: 6pt;
+  margin: 6pt;
+}
+
+.blue {
+  background-color: #208EE8;
+  color: #208EE8;
+  padding: 6pt;
+  margin: 6pt;
+}

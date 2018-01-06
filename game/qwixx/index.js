@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Qwixx } from "./game";
+import ScoreCard from "./scoreCard";
 import Client from "boardgame.io/client";
 import "./index.css";
 
@@ -63,9 +64,12 @@ export class Board extends React.Component {
 
     return (
       <div>
-        <table id="board">
-          <tbody>{tbody}</tbody>
-        </table>
+        <ScoreCard
+          playerCard={this.props.G.playerCards[parseInt(this.props.ctx.currentPlayer)]}
+          numberClicked={(color, idx) => {
+            console.log(color, idx);
+          }}
+        />
         {player}
         {winner}
       </div>
