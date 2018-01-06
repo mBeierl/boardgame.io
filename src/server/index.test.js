@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Google Inc.
+ * Copyright 2017 The boardgame.io Authors
  *
  * Use of this source code is governed by a MIT-style
  * license that can be found in the LICENSE file or at
@@ -95,7 +95,8 @@ test('action', () => {
   io.socket.emit.mockReset();
 
   // Actions are broadcasted as state updates.
-  io.socket.receive('action', action, 0, 'gameID', null);
+  // The playerID parameter is necessary to account for view-only players.
+  io.socket.receive('action', action, 0, 'gameID', '0');
   expect(io.socket.emit).lastCalledWith(
     'sync', 'gameID', {
     G: {},
@@ -111,11 +112,11 @@ test('action', () => {
   io.socket.emit.mockReset();
 
   // ... but not if the gameID is not known.
-  io.socket.receive('action', action, 1, 'unknown');
+  io.socket.receive('action', action, 1, 'unknown', '1');
   expect(io.socket.emit).toHaveBeenCalledTimes(0);
 
   // ... and not if the _id doesn't match the internal state.
-  io.socket.receive('action', action, 100, 'gameID');
+  io.socket.receive('action', action, 100, 'gameID', '1');
   expect(io.socket.emit).toHaveBeenCalledTimes(0);
 
   // ... and not if player != currentPlayer

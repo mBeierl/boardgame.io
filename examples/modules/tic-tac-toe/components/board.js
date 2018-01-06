@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Google Inc.
+ * Copyright 2017 The boardgame.io Authors.
  *
  * Use of this source code is governed by a MIT-style
  * license that can be found in the LICENSE file or at
@@ -8,17 +8,16 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TicTacToe } from './game';
-import Client from 'boardgame.io/client';
-import './index.css';
+import './board.css';
 
-export class Board extends React.Component {
+class Board extends React.Component {
   static propTypes = {
     G:        PropTypes.any.isRequired,
     ctx:      PropTypes.any.isRequired,
     endTurn:  PropTypes.func.isRequired,
     moves:    PropTypes.any.isRequired,
-    playerID:   PropTypes.string
+    playerID:   PropTypes.string,
+    isActive:   PropTypes.bool
   }
 
   onClick = (id) => {
@@ -29,8 +28,7 @@ export class Board extends React.Component {
   }
 
   isActive(id) {
-    if (this.props.playerID !== null &&
-        this.props.ctx.currentPlayer !== this.props.playerID) {
+    if (!this.props.isActive) {
       return false;
     }
     if (this.props.ctx.winner !== null) return false;
@@ -77,7 +75,4 @@ export class Board extends React.Component {
   }
 }
 
-export const Singleplayer = Client({
-  game: TicTacToe,
-  board: Board
-});
+export default Board;
