@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Google Inc.
+ * Copyright 2017 The boardgame.io Authors
  *
  * Use of this source code is governed by a MIT-style
  * license that can be found in the LICENSE file or at
@@ -12,7 +12,7 @@ import KoaHelmet from 'koa-helmet';
 import KoaWebpack from 'koa-webpack';
 import WebpackConfig from './webpack.dev.js';
 import Server from 'boardgame.io/server';
-import { TicTacToe } from './tic-tac-toe/game';
+import TicTacToe from './game';
 
 const PORT = process.env.PORT || 8000;
 const DEV = (process.env.NODE_ENV === 'development');

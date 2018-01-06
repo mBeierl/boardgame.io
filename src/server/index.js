@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Google Inc.
+ * Copyright 2017 The boardgame.io Authors
  *
  * Use of this source code is governed by a MIT-style
  * license that can be found in the LICENSE file or at
@@ -37,10 +37,9 @@ function Server({game, numPlayers}) {
       const state = store.getState();
 
       // Bail out if the player making the move is not
-      // the current player. The null player is always
-      // allowed.
-      if (playerID != null &&
-          playerID != state.ctx.currentPlayer) {
+      // the current player. The null player is no
+      // longer allowed and is now a "view-only" player
+      if (playerID != state.ctx.currentPlayer) {
         return;
       }
 
